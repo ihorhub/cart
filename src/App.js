@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { useSelector } from 'react-redux'
+import React from 'react'
+import { Header } from './components/header'
+import { ProductItem } from './components/product-item'
+import { ProductList } from './components/product-list'
+import { useEffect, useDispatch } from 'react'
+import { useServices } from './services'
+import { setProducts } from './redux'
 
 function App() {
+  const { cart, products, wishlist } = useSelector(
+    ({ cart: { cart }, wishlist: { wishlist }, products: { products } }) => ({
+      cart,
+      wishlist,
+      products,
+    })
+  )
+  console.log(store)
+  const dispatch = useDispatch()
+
+  // const { productService } = useServices()
+  // const fetchData = useCallback(async () => {
+  //   const response = await productService.getProducts()
+  //   const json = await response.json()
+  //   dispatch(setProducts(json))
+  //   console.log(json)
+  // }, [])
+
+  useEffect(() => {
+    dispatch(setProducts())
+    // fetchData()
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <ProductList products={products} />
+      <h1>
+        HELLO Code {cart.length} {wishlist.length}
+        {products.length}
+      </h1>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

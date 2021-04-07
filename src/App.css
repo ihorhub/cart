@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+header {
+  padding: 10px 14px;
+  background: coral;
+  color: cornflowerblue;
+}
+.d-flex {
+  display: flex;
+}
+.align-center {
+  align-items: center;
+}
+.mx-10 {
+  margin: 0 10px;
+}
+.justify-between {
+  justify-content: space-between;
+}
