@@ -1,5 +1,4 @@
 import { TOGGLE_ITEM_IN_WISHLIST } from '../action-types'
-
 const initialState = {
   wishlist: [],
 }

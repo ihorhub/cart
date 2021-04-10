@@ -7,13 +7,20 @@ import { ProductList } from './components/product-list'
 import { useEffect, useDispatch } from 'react'
 import { useServices } from './services'
 import { setProducts } from './redux'
+import { Card } from './components/card'
 
 function App() {
-  const { cart, products, wishlist } = useSelector(
-    ({ cart: { cart }, wishlist: { wishlist }, products: { products } }) => ({
+  const { cart, products, wishlist, isCartOpen } = useSelector(
+    ({
+      cart: { cart },
+      wishlist: { wishlist },
+      products: { products },
+      isCartOpen: { isCartOpen },
+    }) => ({
       cart,
       wishlist,
       products,
+      isCartOpen,
     })
   )
   console.log(store)
@@ -35,10 +42,11 @@ function App() {
     <div className="App">
       <Header />
       <ProductList products={products} />
-      <h1>
+      {isCartOpen && <Card />}
+      {/* <h1>
         HELLO Code {cart.length} {wishlist.length}
         {products.length}
-      </h1>
+      </h1> */}
     </div>
   )
 }

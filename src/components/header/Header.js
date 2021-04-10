@@ -1,20 +1,26 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { onCartVisibilityToggle } from '../../redux/action-creators'
+import './index'
 
-export function Header() {
+export const Header = () => {
   const { cart, wishlist } = useSelector(
     ({ cart: { cart }, wishlist: { wishlist } }) => ({
       cart,
       wishlist,
     })
   )
+  const dispatch = useDispatch()
   return (
-    <header className="d-flex justify-between align-center ">
+    <header>
       <div>
         <h2> hello in shop</h2>
-        <div className="d-flex justify-between ">
-          <div className="mx-10">wishlist:{wishlist.length}</div>
-          <div className="mx-10"> cartProd:{cart.length}</div>
-        </div>
+        <header>
+          <div>wishlist:{wishlist.length}</div>
+          <button onClick={() => dispatch(onCartVisibilityToggle())}>
+            cartProd:{cart.length}
+          </button>
+        </header>
       </div>
     </header>
   )

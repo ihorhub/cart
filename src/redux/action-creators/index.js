@@ -2,6 +2,7 @@ import {
   SET_PRODUCTS,
   TOGGLE_ITEM_IN_CART,
   TOGGLE_ITEM_IN_WISHLIST,
+  ON_CART_VISIBILITY_TOGGLE,
 } from '../action-types'
 import { services } from '../../services'
 
@@ -22,4 +23,7 @@ export const toggleItemInWishList = (product) => ({
 export const toggleItemInCart = (product) => ({
   type: TOGGLE_ITEM_IN_CART,
   payload: product,
+})
+export const onCartVisibilityToggle = () => ({
+  type: ON_CART_VISIBILITY_TOGGLE,
 })
