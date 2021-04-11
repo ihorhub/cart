@@ -4,7 +4,8 @@ const initialState = {
   products: [],
 }
 
-export default (state = initialState, action) => {
+const products = (state = initialState, action) => {
+  // eslint-disable-next-line
   switch (action.type) {
     case SET_PRODUCTS: {
       return { ...state, products: action.payload }
@@ -14,3 +15,4 @@ export default (state = initialState, action) => {
     }
   }
 }
+export default products

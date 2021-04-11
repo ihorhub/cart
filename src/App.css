@@ -36,11 +36,7 @@
     transform: rotate(360deg);
   }
 }
-header {
-  padding: 10px 14px;
-  background: coral;
-  color: cornflowerblue;
-}
+
 .d-flex {
   display: flex;
 }
@@ -52,4 +48,18 @@ header {
 }
 .justify-between {
   justify-content: space-between;
+}
+
+.shop {
+  background: coral;
+  color: cornflowerblue;
+  font-weight: bold;
+  font-size: 25px;
+  min-width: 100%;
+  min-height: 100px;
+  padding: 0px 10px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

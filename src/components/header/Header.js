@@ -10,17 +10,22 @@ export const Header = () => {
       wishlist,
     })
   )
+
   const dispatch = useDispatch()
   return (
     <header>
       <div>
-        <h2> hello in shop</h2>
-        <header>
-          <div>wishlist:{wishlist.length}</div>
-          <button onClick={() => dispatch(onCartVisibilityToggle())}>
-            cartProd:{cart.length}
-          </button>
-        </header>
+        <h2 className="align-center mx-10"> hello in shop</h2>
+
+        <div className="mx-10 align-center" title="wishlist">
+          wishlist:{wishlist.length}
+        </div>
+        <button
+          onClick={() => dispatch(onCartVisibilityToggle())}
+          title=" cart"
+        >
+          cartProd:{cart.length}
+        </button>
       </div>
     </header>
   )

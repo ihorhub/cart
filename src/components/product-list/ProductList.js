@@ -20,7 +20,7 @@ export const ProductList = ({ products }) => {
       {products.map((product) => (
         <ProductItem
           isAddedTOWishlist={!!wishlist.find(({ id }) => id === product.id)}
-          isAddedTOCart={!!cart.find(({ el }) => el.id === product.id)}
+          isAddedTOCart={!!cart.find(({ id }) => id === product.id)}
           onAddToCart={onAddToCart}
           onAddToWishlist={onAddToWishlist}
           product={product}

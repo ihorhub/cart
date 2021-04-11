@@ -1,52 +1,38 @@
 import './App.css'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import React from 'react'
-import { Header } from './components/header'
-import { ProductItem } from './components/product-item'
-import { ProductList } from './components/product-list'
-import { useEffect, useDispatch } from 'react'
-import { useServices } from './services'
+import { useEffect } from 'react'
 import { setProducts } from './redux'
+import { Header } from './components/header'
+import { ProductList } from './components/product-list'
 import { Card } from './components/card'
 
 function App() {
-  const { cart, products, wishlist, isCartOpen } = useSelector(
-    ({
-      cart: { cart },
-      wishlist: { wishlist },
-      products: { products },
-      isCartOpen: { isCartOpen },
-    }) => ({
-      cart,
-      wishlist,
+  const { products, cart, isCartOpen } = useSelector(
+    ({ products: { products }, cart: { cart }, isCartOpen }) => ({
       products,
+      cart,
       isCartOpen,
     })
   )
-  console.log(store)
+
   const dispatch = useDispatch()
 
-  // const { productService } = useServices()
-  // const fetchData = useCallback(async () => {
-  //   const response = await productService.getProducts()
-  //   const json = await response.json()
-  //   dispatch(setProducts(json))
-  //   console.log(json)
-  // }, [])
+  console.log({ isCartOpen })
 
   useEffect(() => {
     dispatch(setProducts())
-    // fetchData()
-  }, [])
+  }, [dispatch])
   return (
     <div className="App">
-      <Header />
-      <ProductList products={products} />
-      {isCartOpen && <Card />}
-      {/* <h1>
-        HELLO Code {cart.length} {wishlist.length}
-        {products.length}
-      </h1> */}
+      <div className="shop">
+        <Header />
+      </div>
+      <div>
+        <ProductList products={products} />
+        {isCartOpen && <Card />}
+      </div>
     </div>
   )
 }

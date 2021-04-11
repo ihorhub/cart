@@ -3,7 +3,8 @@ const initialState = {
   wishlist: [],
 }
 
-export default (state = initialState, action) => {
+const wishlist = (state = initialState, action) => {
+  // eslint-disable-next-line
   switch (action.type) {
     case TOGGLE_ITEM_IN_WISHLIST: {
       const updateWishlist = state.wishlist.filter(
@@ -19,3 +20,4 @@ export default (state = initialState, action) => {
     }
   }
 }
+export default wishlist

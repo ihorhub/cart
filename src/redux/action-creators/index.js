@@ -11,6 +11,7 @@ import { services } from '../../services'
 // with thunk
 
 const { productService } = services
+
 export const setProducts = () => async (dispatch) => {
   const response = await productService.getProducts()
   const json = await response.json()

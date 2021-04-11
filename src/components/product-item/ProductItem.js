@@ -18,9 +18,13 @@ export const ProductItem = ({
         <li>Description:{description}</li>
       </ul>
 
-      <button onClick={() => onAddToCart(product)}>
+      <button
+        style={{ background: isAddedTOCart ? 'yellow' : 'green' }}
+        onClick={() => onAddToCart(product)}
+      >
         {isAddedTOCart ? 'remove from cart' : 'add item to cart'}
       </button>
+
       <button
         style={{ background: isAddedTOWishlist ? 'red' : 'green' }}
         onClick={() => onAddToWishlist(product)}

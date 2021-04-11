@@ -4,16 +4,19 @@ const initialState = {
   isCartOpen: false,
 }
 
-export default (state = initialState, action) => {
+const cart = (state = initialState, action) => {
+  // eslint-disable-next-line
   switch (action.type) {
     case TOGGLE_ITEM_IN_CART: {
-      const updatedCart = state.cart.filter((id) => id !== action.payload.id)
+      const updatedCart = state.cart.filter((el) => el.id !== action.payload.id)
       if (updatedCart.length === state.cart.length) {
         updatedCart.push(action.payload)
+        console.log(updatedCart)
       }
       return { ...state, cart: updatedCart }
     }
     case ON_CART_VISIBILITY_TOGGLE: {
+      console.log(state.isCartOpen)
       return { ...state, isCartOpen: !state.isCartOpen }
     }
     default: {
@@ -21,3 +24,4 @@ export default (state = initialState, action) => {
     }
   }
 }
+export default cart
