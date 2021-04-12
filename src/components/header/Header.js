@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { onCartVisibilityToggle } from '../../redux/action-creators'
 import './index'
 
-export const Header = () => {
+export const Header = (isAddedTOCart) => {
+  console.log(isAddedTOCart)
   const { cart, wishlist } = useSelector(
     ({ cart: { cart }, wishlist: { wishlist } }) => ({
       cart,
@@ -20,13 +21,16 @@ export const Header = () => {
         <div className="mx-10 align-center" title="wishlist">
           wishlist:{wishlist.length}
         </div>
-        <button
-          className="color"
-          onClick={() => dispatch(onCartVisibilityToggle())}
-          title="Click"
-        >
-          cartProd:{cart.length}
-        </button>
+
+        <div>
+          <button
+            className="color"
+            onClick={() => dispatch(onCartVisibilityToggle())}
+            title="Click"
+          >
+            cartProd:{cart.length}
+          </button>
+        </div>
       </div>
     </header>
   )
