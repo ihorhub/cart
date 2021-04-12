@@ -7,7 +7,6 @@ import {
 import { services } from '../../services'
 
 // export const setProducts = (payload) => ({ type: SET_PRODUCTS, payload })
-
 // with thunk
 
 const { productService } = services

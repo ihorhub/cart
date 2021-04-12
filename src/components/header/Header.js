@@ -21,8 +21,9 @@ export const Header = () => {
           wishlist:{wishlist.length}
         </div>
         <button
+          className="color"
           onClick={() => dispatch(onCartVisibilityToggle())}
-          title=" cart"
+          title="Click"
         >
           cartProd:{cart.length}
         </button>

@@ -6,20 +6,18 @@ import { useEffect } from 'react'
 import { setProducts } from './redux'
 import { Header } from './components/header'
 import { ProductList } from './components/product-list'
-import { Card } from './components/card'
+import { CardItem } from './components/card-item'
 
 function App() {
-  const { products, cart, isCartOpen } = useSelector(
-    ({ products: { products }, cart: { cart }, isCartOpen }) => ({
-      products,
-      cart,
-      isCartOpen,
-    })
-  )
-
+  const { products } = useSelector(({ products: { products } }) => ({
+    products,
+  }))
+  const cart = useSelector(({ cart: { cart } }) => cart)
+  const { isCartOpen } = useSelector((state) => ({
+    ...state.cart,
+  }))
+  console.log(isCartOpen)
   const dispatch = useDispatch()
-
-  console.log({ isCartOpen })
 
   useEffect(() => {
     dispatch(setProducts())
@@ -31,8 +29,8 @@ function App() {
       </div>
       <div>
         <ProductList products={products} />
-        {isCartOpen && <Card />}
       </div>
+      {isCartOpen && <CardItem cart={cart} />}
     </div>
   )
 }

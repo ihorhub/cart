@@ -4,14 +4,12 @@ const initialState = {
   isCartOpen: false,
 }
 
-const cart = (state = initialState, action) => {
-  // eslint-disable-next-line
+export const cart = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_ITEM_IN_CART: {
       const updatedCart = state.cart.filter((el) => el.id !== action.payload.id)
       if (updatedCart.length === state.cart.length) {
         updatedCart.push(action.payload)
-        console.log(updatedCart)
       }
       return { ...state, cart: updatedCart }
     }
@@ -19,9 +17,9 @@ const cart = (state = initialState, action) => {
       console.log(state.isCartOpen)
       return { ...state, isCartOpen: !state.isCartOpen }
     }
+
     default: {
       return state
     }
   }
 }
-export default cart
